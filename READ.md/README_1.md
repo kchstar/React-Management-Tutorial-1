@@ -70,10 +70,39 @@ PS D:\Project\management> git push --set-upstream origin master
 
 # 5강
 ## 컴퍼넌트의 분리하면 생산성향상
-
-
+customer.js
+    class Customer extends React.Component {
+        render(){
+            return(
+            <div>   
+            <CustomerProfile id={this.props.id} image={this.props.image} name={this.props.name} />
+            <CustomerInfo birthday={this.props.birthday} gender={this.props.gender} job={this.props.job} />
+            </div>
+            )        
+        }
+    }
+App.js
+    class App extends Component {  // 그려지게 될 최소단위 
+    render(){
+        return(
+        <div>
+        {customers.map(c => { return( <Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} /> ); }) }
+        </div>
+        );
+  }
+}
 
 # 6강
+## material-ul는 React에서 강력하다.
+[](https://material-ui.com/getting-started/installation)
+$ npm install @material-ui/core (x)
+$ npm install @mui/material @emotion/react @emotion/styled
+[안되면](https://velog.io/@keonu05/nth-check-2.0.1)
+
+https://jsonlint.com에서 json형식인지를 확인한다.
+![유효한json인지확인](52.jpg)
+$ yarn add @material-ui/core@next
+
 
 # 7강
 
@@ -86,9 +115,10 @@ $ npm install --save package.json
 ## rest Api
 ## parser(문장 구조 분석. 오류 점검 프로그램)
 ## deprecated(반대하다)
+## vulnerable(취약한)
 
-https://jsonlint.com에서 json형식인지를 확인한다.
-![유효한json인지확인](52.jpg)
+
+
 
 ## react에서는 비동기 통신
 
