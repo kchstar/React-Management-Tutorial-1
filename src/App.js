@@ -1,41 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import Customer from './components/Customer';
 import './App.css';
 
-class App extends Component {
+
+const customers = [
+  {
+  'id':1,
+  'image': 'https://fastly.picsum.photos/id/184/200/300.jpg?hmac=dCgm4a8do6DWvjUWcFvft3Kd1srf1f_TyIZoWGrgu48',  
+  'name': '김천호',
+  'birthday':'961212',
+  'gender': '남자',
+  'job':'대학생'
+
+  },  
+  {
+  'id':2,
+  'image': 'https://fastly.picsum.photos/id/350/200/300.jpg?hmac=lAscVz0d1YWlAi5moOrwmJ0E7KNtxtLyHkE2pq3qnh8',  
+  'name': '김희수',
+  'birthday':'961212',
+  'gender': '여자',
+  'job':'대학생'
+
+  },
+  {
+  'id':3,
+  'image': 'https://fastly.picsum.photos/id/350/200/300.jpg?hmac=lAscVz0d1YWlAi5moOrwmJ0E7KNtxtLyHkE2pq3qnh8 ',  
+  'name': '김희수',
+  'birthday':'961212',
+  'gender': '여자',
+  'job':'대학생'
+
+  }
+]
+
+
+
+
+
+
+
+class App extends Component {  // 그려지게 될 최소단위 
   render(){
     return(
-      <div className='gray-background'>
-        <img src={logo} lat='logo' />
-        <h2>Let's develop management system!</h2>
-      </div>  
+      <div>
+       {customers.map(c => { return( <Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} /> ); }) }
+      </div>
     );
-  }
-
-
 }
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Hello React Project
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+}
 
 export default App;
